@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Kyle123:Kyle123@capital-choice-solutions-agiyn.mongodb.net/Capital-Choice-Solutions?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://Kyle123:Kyle123@capital-choice-solutions-agiyn.mongodb.net/Capital-Choice-Solutions?retryWrites=true&w=majority",
+  "jwtSecret": "jwtsecrettoken"
 }
