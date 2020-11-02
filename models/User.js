@@ -10,6 +10,18 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  location: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  monthlyNetIncome: {
+    type: String,
+    required: true,
+  },
   password: {
     type: String,
     required: true,

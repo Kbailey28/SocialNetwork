@@ -29,6 +29,98 @@ const ProfileSchema = new mongoose.Schema({
     type: Number,
     required: false,
   },
+  shortTermDebt: [
+    {
+      creditLimit: {
+        type: Number,
+        required: false,
+      },
+      bill: {
+        type: String,
+        required: true,
+      },
+      dueDate: {
+        type: String,
+        required: true,
+      },
+      minPayment: {
+        type: Number,
+        required: true,
+      },
+      amountDue: {
+        type: Number,
+        required: true,
+      },
+      amountPaid: {
+        type: Number,
+        required: true,
+      },
+      difference: {
+        type: Number,
+        required: true,
+      },
+      creditUsage: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
+  monthlyExpense: [
+    {
+      totalBill: {
+        type: Number,
+        required: true,
+      },
+      bill: {
+        type: String,
+        required: true,
+      },
+      dueDate: {
+        type: String,
+        required: true,
+      },
+      amountDue: {
+        type: Number,
+        required: true,
+      },
+      amountPaid: {
+        type: Number,
+        required: true,
+      },
+      notes: {
+        type: String,
+        required: false,
+      },
+    },
+  ],
+  otherExpense: [
+    {
+      totalBill: {
+        type: Number,
+        required: true,
+      },
+      bill: {
+        type: String,
+        required: true,
+      },
+      dueDate: {
+        type: String,
+        required: true,
+      },
+      amountDue: {
+        type: Number,
+        required: true,
+      },
+      amountPaid: {
+        type: Number,
+        required: true,
+      },
+      notes: {
+        type: String,
+        required: false,
+      },
+    },
+  ],
 });
 
 //add expected payoff date in React, Do not forget!!!

@@ -4,13 +4,16 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
+  ADMIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  DELETE_ACCOUNT,
 } from '../actions/types';
 
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
+  isAdmin: false,
   loading: true,
   user: null,
 };
@@ -35,15 +38,26 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
       };
+    case ADMIN_SUCCESS:
+      localStorage.setItem('token', payload.token);
+      return {
+        ...state,
+        ...payload,
+        isAuthenticated: true,
+        isAdmin: true,
+        loading: false,
+      };
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
+    case DELETE_ACCOUNT:
       localStorage.removeItem('token');
       return {
         ...state,
         token: null,
         isAuthenticated: false,
+        isAdmin: false,
         loading: false,
       };
     default:

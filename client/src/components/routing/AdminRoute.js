@@ -3,16 +3,16 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const PrivateRoute = ({
+const AdminRoute = ({
   component: Component,
-  auth: { isAuthenticated, loading },
+  auth: { isAuthenticated, isAdmin, loading },
   ...rest
 }) => (
   <Route
     {...rest}
     render={(props) =>
-      !isAuthenticated && !loading ? (
-        <Redirect to='/Login' />
+      !isAuthenticated && !isAdmin && !loading ? (
+        <Redirect to='/dashboard' />
       ) : (
         <Component {...props} />
       )
@@ -20,7 +20,7 @@ const PrivateRoute = ({
   />
 );
 
-PrivateRoute.propTypes = {
+AdminRoute.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
@@ -28,4 +28,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(AdminRoute);

@@ -6,8 +6,10 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
+  ADMIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE,
 } from './types';
 import setAuthToken from '../../src/utils/setAuthToken';
 
@@ -76,6 +78,14 @@ export const login = (email, password) => async (dispatch) => {
   try {
     const res = await axios.post('/api/auth', body, config);
 
+    if (email === 'kyle@gmail.com') {
+      dispatch({
+        type: ADMIN_SUCCESS,
+        payload: res.data,
+      });
+      console.log('admin');
+    }
+
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
@@ -97,5 +107,6 @@ export const login = (email, password) => async (dispatch) => {
 
 // Logout
 export const logout = () => (dispatch) => {
+  dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
 };

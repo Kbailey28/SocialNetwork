@@ -140,4 +140,216 @@ router.delete('/', auth, async (req, res) => {
   }
 });
 
+// @route  PUT api/profile/shortTermDebt
+// @desc   Add profile debt (short term)
+// @access Private
+router.put(
+  '/shortTermDebt',
+  [
+    auth,
+    [
+      check('bill', 'Bill name is required').not().isEmpty(),
+      check('dueDate', 'Due Date is required').not().isEmpty(),
+      check('minPayment', 'Minimum payment is required').not().isEmpty(),
+      check('amountDue', 'Amount due is required').not().isEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const {
+      creditLimit,
+      bill,
+      dueDate,
+      minPayment,
+      amountDue,
+      amountPaid,
+      difference,
+      creditUsage,
+    } = req.body;
+
+    const newShortTermDebt = {
+      creditLimit,
+      bill,
+      dueDate,
+      minPayment,
+      amountDue,
+      amountPaid,
+      difference,
+      creditUsage,
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.shortTermDebt.unshift(newShortTermDebt);
+
+      await profile.save(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route  Delete api/profile/shortTermDebt/:shortTermDebt_id
+// @desc   Delete short term debt from profile
+// @access Private
+
+router.delete('/shortTermDebt/:std_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.shortTermDebt
+      .map((item) => item.id)
+      .indexOf(req.params.std_id);
+
+    profile.shortTermDebt.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route  PUT api/profile/monthlyExpense
+// @desc   Add profile debt (monthly term)
+// @access Private
+router.put(
+  '/monthlyExpense',
+  [
+    auth,
+    [
+      check('bill', 'Bill name is required').not().isEmpty(),
+      check('dueDate', 'Due Date is required').not().isEmpty(),
+      check('amountDue', 'Amount due is required').not().isEmpty(),
+      check('amountPaid', 'Amount paid is required').not().isEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { totalBill, bill, dueDate, amountDue, amountPaid, notes } = req.body;
+
+    const newMonthlyExpense = {
+      totalBill,
+      bill,
+      dueDate,
+      amountDue,
+      amountPaid,
+      notes,
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.monthlyExpense.unshift(newMonthlyExpense);
+
+      await profile.save(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route  Delete api/profile/monthlyExpense/:ME_id
+// @desc   Delete short term debt from profile
+// @access Private
+
+router.delete('/monthlyExpense/:me_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.monthlyExpense
+      .map((item) => item.id)
+      .indexOf(req.params.ME_id);
+
+    profile.monthlyExpense.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route  PUT api/profile/otherExpense
+// @desc   Add profile debt (Other)
+// @access Private
+router.put(
+  '/otherExpense',
+  [
+    auth,
+    [
+      check('bill', 'Bill name is required').not().isEmpty(),
+      check('dueDate', 'Due Date is required').not().isEmpty(),
+      check('amountDue', 'Amount due is required').not().isEmpty(),
+      check('amountPaid', 'Amount paid is required').not().isEmpty(),
+    ],
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { totalBill, bill, dueDate, amountDue, amountPaid, notes } = req.body;
+
+    const newOtherExpense = {
+      totalBill,
+      bill,
+      dueDate,
+      amountDue,
+      amountPaid,
+      notes,
+    };
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.otherExpense.unshift(newOtherExpense);
+
+      await profile.save(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
+
+// @route  Delete api/profile/otherExpense/:otherExpense_id
+// @desc   Delete Other expense from profile
+// @access Private
+
+router.delete('/otherExpense/:oe_id', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id });
+
+    // Get remove index
+    const removeIndex = profile.otherExpense
+      .map((item) => item.id)
+      .indexOf(req.params.OE_id);
+
+    profile.otherExpense.splice(removeIndex, 1);
+
+    await profile.save();
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
