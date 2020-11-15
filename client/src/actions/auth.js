@@ -78,7 +78,12 @@ export const login = (email, password) => async (dispatch) => {
   try {
     const res = await axios.post('/api/auth', body, config);
 
-    if (email === 'kyle@gmail.com') {
+    if (
+      email === 'kyle@gmail.com' ||
+      email === 'andrew@capitalchoicesolutions.com' ||
+      email === 'jonathan@capitalchoicesolutions.com' ||
+      email === 'kyle@capitalchoicesolutions.com'
+    ) {
       dispatch({
         type: ADMIN_SUCCESS,
         payload: res.data,

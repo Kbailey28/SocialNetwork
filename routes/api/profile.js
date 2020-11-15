@@ -13,7 +13,7 @@ router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.user.id,
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['name', 'email', 'avatar']);
 
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });
@@ -44,7 +44,17 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { goals, balance, payment, rate, savings, investments } = req.body;
+    const {
+      location,
+      phoneNumber,
+      monthlyNetIncome,
+      goals,
+      balance,
+      payment,
+      rate,
+      savings,
+      investments,
+    } = req.body;
 
     // build profile
 
@@ -58,6 +68,9 @@ router.post(
     if (rate) profileFields.rate = rate;
     if (savings) profileFields.savings = savings;
     if (investments) profileFields.investments = investments;
+    if (location) profileFields.location = location;
+    if (phoneNumber) profileFields.phoneNumber = phoneNumber;
+    if (monthlyNetIncome) profileFields.monthlyNetIncome = monthlyNetIncome;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
@@ -91,7 +104,11 @@ router.post(
 
 router.get('/', async (req, res) => {
   try {
-    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    const profiles = await Profile.find().populate('user', [
+      'name',
+      'email',
+      'avatar',
+    ]);
     res.json(profiles);
   } catch (err) {
     console.error(err.message);
@@ -107,7 +124,7 @@ router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.params.user_id,
-    }).populate('user', ['name', 'avatar']);
+    }).populate('user', ['name', 'email', 'avatar']);
 
     if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
@@ -166,8 +183,10 @@ router.put(
       minPayment,
       amountDue,
       amountPaid,
+      rate,
       difference,
       creditUsage,
+      notes,
     } = req.body;
 
     const newShortTermDebt = {
@@ -177,8 +196,10 @@ router.put(
       minPayment,
       amountDue,
       amountPaid,
+      rate,
       difference,
       creditUsage,
+      notes,
     };
 
     try {

@@ -11,8 +11,10 @@ const ShortTermDebt = ({ shortTermDebt, deleteShortTermDebt }) => {
       <td className='hide-sm'>{std.dueDate}</td>
       <td className='hide-sm'>{std.minPayment}</td>
       <td className='hide-sm'>{std.amountDue}</td>
+      <td className='hide-sm'>{std.rate}</td>
       <td className='hide-sm'>{std.amountPaid}</td>
       <td className='hide-sm'>{std.difference}</td>
+      <td className='hide-sm'>{std.notes}</td>
       <td>
         <button
           onClick={() => deleteShortTermDebt(std._id)}
@@ -35,8 +37,10 @@ const ShortTermDebt = ({ shortTermDebt, deleteShortTermDebt }) => {
             <th className='hide-sm'>Due Date</th>
             <th className='hide-sm'>Minimum Payment</th>
             <th className='hide-sm'>Amount Due</th>
+            <th className='hide-sm'>Rate</th>
             <th className='hide-sm'>Amount Paid</th>
             <th className='hide-sm'>Difference</th>
+            <th className='hide-sm'>Notes</th>
             <th />
           </tr>
         </thead>

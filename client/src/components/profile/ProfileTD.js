@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-const TotalDebt = ({ shortTermDebt, monthlyExpense, otherExpense }) => {
+const ProfileTD = ({ shortTermDebt, monthlyExpense, otherExpense }) => {
   let stDebts = 0;
   let meDebts = 0;
   let oeDebts = 0;
@@ -26,27 +25,20 @@ const TotalDebt = ({ shortTermDebt, monthlyExpense, otherExpense }) => {
 
   return (
     <Fragment>
-      <h2 className='my-2'>Total Debt</h2>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>Total Debt</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{debts}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div>
+        <h3 className='text-dark'>Total Debt</h3>
+        <p>
+          <strong> {debts} </strong>
+        </p>
+      </div>
     </Fragment>
   );
 };
 
-TotalDebt.propTypes = {
+ProfileTD.propTypes = {
   shortTermDebt: PropTypes.array.isRequired,
   monthlyExpense: PropTypes.array.isRequired,
   otherExpense: PropTypes.array.isRequired,
 };
 
-export default connect(null)(TotalDebt);
+export default ProfileTD;

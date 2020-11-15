@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addShortTermDebt } from '../../actions/profile';
@@ -11,9 +10,11 @@ const AddShortTermDebt = ({ addShortTermDebt, history }) => {
     dueDate: '',
     minPayment: '',
     amountDue: '',
+    rate: '',
     amountPaid: '',
     difference: '',
     creditUsage: '',
+    notes: '',
   });
 
   const {
@@ -22,9 +23,11 @@ const AddShortTermDebt = ({ addShortTermDebt, history }) => {
     dueDate,
     minPayment,
     amountDue,
+    rate,
     amountPaid,
     difference,
     creditUsage,
+    notes,
   } = formData;
 
   const onChange = (e) =>
@@ -96,6 +99,15 @@ const AddShortTermDebt = ({ addShortTermDebt, history }) => {
         <div className='form-group'>
           <input
             type='text'
+            placeholder='interest rate'
+            name='rate'
+            value={rate}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
             placeholder='Amount Paid'
             name='amountPaid'
             value={amountPaid}
@@ -117,6 +129,15 @@ const AddShortTermDebt = ({ addShortTermDebt, history }) => {
             placeholder='Credit Usage'
             name='creditUsage'
             value={creditUsage}
+            onChange={(e) => onChange(e)}
+          />
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='notes'
+            name='notes'
+            value={notes}
             onChange={(e) => onChange(e)}
           />
         </div>

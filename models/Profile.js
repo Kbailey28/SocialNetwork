@@ -5,6 +5,18 @@ const ProfileSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
+  location: {
+    type: String,
+    required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  monthlyNetIncome: {
+    type: String,
+    required: true,
+  },
   goals: {
     type: [String],
     required: true,
@@ -14,10 +26,6 @@ const ProfileSchema = new mongoose.Schema({
     required: true,
   },
   payment: {
-    type: Number,
-    required: true,
-  },
-  rate: {
     type: Number,
     required: true,
   },
@@ -51,6 +59,10 @@ const ProfileSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
+      rate: {
+        type: Number,
+        required: false,
+      },
       amountPaid: {
         type: Number,
         required: true,
@@ -59,9 +71,9 @@ const ProfileSchema = new mongoose.Schema({
         type: Number,
         required: true,
       },
-      creditUsage: {
-        type: Number,
-        required: true,
+      notes: {
+        type: String,
+        required: false,
       },
     },
   ],

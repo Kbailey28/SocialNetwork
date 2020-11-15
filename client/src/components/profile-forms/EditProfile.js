@@ -11,10 +11,12 @@ const EditProfile = ({
   history,
 }) => {
   const [formData, setFormData] = useState({
+    location: '',
+    phoneNumber: '',
+    monthlyNetIncome: '',
     goals: '',
     balance: '',
     payment: '',
-    rate: '',
     savings: '',
     investments: '',
   });
@@ -28,13 +30,36 @@ const EditProfile = ({
       goals: loading || !profile.goals ? '' : profile.goals.join(','),
       balance: loading || !profile.balance ? '' : profile.balance,
       payment: loading || !profile.payment ? '' : profile.payment,
-      rate: loading || !profile.rate ? '' : profile.rate,
       savings: loading || !profile.savings ? '' : profile.savings,
       investments: loading || !profile.investments ? '' : profile.investments,
+      location: loading || !profile.location ? '' : profile.location,
+      phoneNumber: loading || !profile.phoneNumber ? '' : profile.phoneNumber,
+      monthlyNetIncome:
+        loading || !profile.monthlyNetIncome ? '' : profile.monthlyNetIncome,
     });
-  }, [loading, getCurrentProfile]);
+  }, [
+    loading,
+    getCurrentProfile,
+    profile.balance,
+    profile.goals,
+    profile.investments,
+    profile.location,
+    profile.monthlyNetIncome,
+    profile.payment,
+    profile.phoneNumber,
+    profile.savings,
+  ]);
 
-  const { goals, balance, payment, rate, savings, investments } = formData;
+  const {
+    location,
+    phoneNumber,
+    monthlyNetIncome,
+    goals,
+    balance,
+    payment,
+    savings,
+    investments,
+  } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -53,6 +78,38 @@ const EditProfile = ({
       </p>
       <small>* = required field</small>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Location'
+            name='location'
+            value={location}
+            onChange={(e) => onChange(e)}
+          />
+          <small className='form-text'>Please enter your location</small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Phone Number'
+            name='phoneNumber'
+            value={phoneNumber}
+            onChange={(e) => onChange(e)}
+          />
+          <small className='form-text'>Please enter your phone number</small>
+        </div>
+        <div className='form-group'>
+          <input
+            type='text'
+            placeholder='Monthly Net Income'
+            name='monthlyNetIncome'
+            value={monthlyNetIncome}
+            onChange={(e) => onChange(e)}
+          />
+          <small className='form-text'>
+            Please enter your approximate monthly net income
+          </small>
+        </div>
         <div className='form-group'>
           <input
             type='text'
@@ -77,16 +134,6 @@ const EditProfile = ({
             Please enter your monthly payment.
           </small>
         </div>
-        <div className='form-group'>
-          <input
-            type='text'
-            placeholder='Rate'
-            name='rate'
-            value={rate}
-            onChange={(e) => onChange(e)}
-          />
-          <small className='form-text'>Please enter your interest rate</small>
-        </div>{' '}
         <div className='form-group'>
           <input
             type='text'
