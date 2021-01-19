@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #27b145;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --gray-color: rgb(236, 230, 230);
 }
 
 * {
@@ -14,7 +17,8 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold',
+    sans-serif 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -78,6 +82,17 @@ img {
   color: black;
 }
 
+.text-red {
+  color: red;
+}
+
+.red {
+  background: red;
+}
+
+.text-gold {
+  color: gold;
+}
 /* Padding */
 .p {
   padding: 0.5rem;
@@ -102,6 +117,10 @@ img {
 }
 .py-3 {
   padding: 3rem 0;
+}
+
+.py-4 {
+  padding: 4rem 0;
 }
 
 /* Margin */
@@ -230,7 +249,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
   position: absolute;
   top: 0;
   left: 0;
@@ -253,6 +272,7 @@ img {
 .form input[type='email'],
 .form input[type='password'],
 .form input[type='date'],
+.form input[type='number'],
 .form select,
 .form textarea {
   display: block;
@@ -312,7 +332,7 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 1px var(--light-color);
   opacity: 0.9;
 }
 
@@ -321,13 +341,13 @@ button {
 }
 
 .navbar a {
-  color: #fff;
+  color: var(--primary-color);
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
 
 .navbar a:hover {
-  color: var(--primary-color);
+  color: var(--dark-color);
 }
 
 .navbar .welcome span {
@@ -339,9 +359,96 @@ button {
   position: relative;
   background: url('./img/money-1604921_1920.jpg') no-repeat center center/cover;
   height: 100vh;
+  opacity: 0.85;
+  background-attachment: fixed;
 }
 
 .landing-inner {
+  color: rgb(235, 197, 94);
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  text-align: left;
+}
+
+.bulletBox {
+  color: #000000;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.bullet {
+  color: rgb(182, 175, 175);
+  background-image: linear-gradient(to right, rgb(219, 217, 217), white);
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  border: 1px;
+  border-color: Gray;
+}
+
+.landing-info {
+  color: #fff;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--primary-color),
+    rgb(16, 42, 190)
+  );
+  height: 200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-coaches {
+  color: black;
+  background-color: rgb(250, 248, 248);
+  height: 400px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-statement {
+  color: black;
+  background-color: white;
+  height: 175px;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.quizInfo {
+  background: url('./img/person-1245959_1920.jpg') no-repeat center center/cover;
+  height: 500px;
+  text-align: center;
+  position: relative;
+  opacity: 0.85;
+  background-attachment: fixed;
+}
+
+.quizInner {
   color: #fff;
   height: 100%;
   width: 80%;
@@ -351,6 +458,90 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.more-info {
+  color: black;
+  background-color: #fff;
+  height: 300px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.add-text {
+  color: black;
+  background-color: white;
+  height: 150px;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.picture1 {
+  background: url('./img/man-1245658_1920.jpg') no-repeat center center/cover;
+  color: black;
+  height: 100%;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  padding-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.picture2 {
+  background: url('./img/couple-1030744_1920.jpg') no-repeat center center/cover;
+}
+
+.picture3 {
+  background: url('./img/money-2724241_1920.jpg') no-repeat center center/cover;
+}
+
+.picture4 {
+  background: url('./img/asian-4033334_1920.jpg') no-repeat center center/cover;
+}
+
+.picture5 {
+  background: url('./img/people-2587456_1920.jpg') no-repeat center center/cover;
+}
+.picture2,
+.picture3,
+.picture4,
+.picture5 {
+  color: black;
+  height: 100%;
+  width: 40%;
+  margin: auto;
+  display: flex;
+  padding-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  border-top: solid 1px var(--light-color);
 }
 
 /* Profiles Page */
@@ -490,6 +681,46 @@ button {
   color: #aaa;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+}
+
+/* about us */
+
+.about {
+  display: grid;
+  grid-template-columns: 2fr 4fr 2fr;
+  align-items: center;
+  grid-gap: 2rem;
+  padding: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.about-top {
+  grid-area: top;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(15, 134, 104),
+    rgb(116, 138, 116)
+  );
+}
+
+.about-coaches {
+  color: black;
+  background-color: rgb(250, 248, 248);
+  height: 200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Mobile Styles */

@@ -16,6 +16,9 @@ const DashboardActions = () => {
       <Link to='/addOtherExpense' className='btn btn-light'>
         <i className='fas fa-dollar-sign text-primary' /> Add Other Expense
       </Link>
+      <Link to='/math' className='btn btn-light'>
+        <i className='fas fa-dollar-sign text-primary' /> Math
+      </Link>
     </div>
   );
 };

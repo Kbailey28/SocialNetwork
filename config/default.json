@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://Kyle123:Kyle123@capital-choice-solutions-agiyn.mongodb.net/Capital-Choice-Solutions?retryWrites=true&w=majority",
-  "jwtSecret": "jwtsecrettoken"
+  "jwtSecret": "jwtsecrettoken",
+  "GMAILPW": "CCSolutions1",
+  "SENDGRID_API_KEY": "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"
 }
