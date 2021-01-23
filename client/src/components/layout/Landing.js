@@ -13,7 +13,7 @@ const Landing = ({ isAuthenticated }) => {
       <div className='landing'>
         <div className='dark-overlay'>
           <div className='landing-inner'>
-            <h1 className='x-large py-4'>
+            <h1 className='xx-large py-4'>
               When will life begin to pay you for living it!
             </h1>
             {/* <p className='lead'>
@@ -31,14 +31,14 @@ const Landing = ({ isAuthenticated }) => {
         </div>
       </div>
       <div className='bulletBox'>
-        <div className='bullet lead'>
-          <h4>Simplify your financial goals</h4>
+        <div className='bullet'>
+          <h4 className='lead'>Simplify your financial goals</h4>
         </div>
-        <div className='bullet lead'>
-          <h4>Increase financial awareness &amp; IQ</h4>
+        <div className='bullet'>
+          <h4 className='lead'>Increase financial awareness &amp; IQ</h4>
         </div>
-        <div className='bullet lead'>
-          <h4>Live abundantly</h4>
+        <div className='bullet'>
+          <h4 className='lead'>Live abundantly</h4>
         </div>
       </div>
       <div className='landing-coaches'>

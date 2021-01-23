@@ -49,20 +49,26 @@ img {
 }
 
 /* Text Styles*/
-.x-large {
-  font-size: 4rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-.large {
+.xx-large {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
+.x-large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
 .lead {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -384,8 +390,10 @@ button {
 }
 
 .bullet {
-  color: rgb(182, 175, 175);
-  background-image: linear-gradient(to right, rgb(219, 217, 217), white);
+  /* color: rgb(182, 175, 175);
+  background-image: linear-gradient(to right, rgb(219, 217, 217), white); */
+  color: black;
+  background-image: linear-gradient(to right, rgb(241, 208, 117), white);
   width: 100%;
   display: flex;
   text-align: center;
@@ -394,6 +402,7 @@ button {
   justify-content: center;
   border: 1px;
   border-color: Gray;
+  box-shadow: 0 8px 6px -6px;
 }
 
 .landing-info {
@@ -734,6 +743,10 @@ button {
   }
 
   /* Text Styles */
+  .xx-large {
+    font-size: 3rem;
+  }
+
   .x-large {
     font-size: 3rem;
   }
@@ -831,6 +844,10 @@ button {
   }
 
   /* Text Styles */
+  .xx-large {
+    font-size: 2rem;
+  }
+
   .x-large {
     font-size: 2rem;
   }
