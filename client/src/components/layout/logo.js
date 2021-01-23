@@ -3,7 +3,7 @@ import logo from './IMG_95531.jpg';
 
 export default () => (
   <Fragment>
-    <img
+    <img className='logo'
       src={logo}
       style={{ width: '120px', margin: 'auto'}}
       alt='logo'

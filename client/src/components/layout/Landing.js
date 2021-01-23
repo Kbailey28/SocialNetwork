@@ -31,13 +31,13 @@ const Landing = ({ isAuthenticated }) => {
         </div>
       </div>
       <div className='bulletBox'>
-        <div className='bullet'>
+        <div className='bullet lead'>
           <h4>Simplify your financial goals</h4>
         </div>
-        <div className='bullet'>
+        <div className='bullet lead'>
           <h4>Increase financial awareness &amp; IQ</h4>
         </div>
-        <div className='bullet'>
+        <div className='bullet lead'>
           <h4>Live abundantly</h4>
         </div>
       </div>
@@ -63,8 +63,8 @@ const Landing = ({ isAuthenticated }) => {
       </div>
       <div className='more-info py-1'>
         <div className='add-text'>
-          <h1>Private 1 on 1 Coaching</h1>
-          <h5>
+          <h1 className='large'>Private 1 on 1 Coaching</h1>
+          <h5 className='lead'>
               Become accountable to yourself
               Will increase your financial awareness, financial security, and overall confidence.
               Get your personal customizable plan for your goals 
@@ -80,8 +80,8 @@ const Landing = ({ isAuthenticated }) => {
       <div className='more-info py-1'>
         <div className='picture2 py-1'></div>
         <div className='add-text'>
-          <h1>Couples Coaching</h1>
-          <h5>
+          <h1 className='large'>Couples Coaching</h1>
+          <h5 className='lead'>
           Overcome the awkward money conversation
           Help organize your money journey in your relationship 
           Long term financial goals ( college, home purchase, investing ) 
@@ -96,8 +96,8 @@ const Landing = ({ isAuthenticated }) => {
       </div>
       <div className='more-info py-1'>
         <div className='add-text'>
-          <h1>Fully available and able to help any client.</h1>
-          <h5>
+          <h1 className='large'>Fully available and able to help any client.</h1>
+          <h5 className='lead'>
             We are willing to work with anyone who desires to better themselves
             and improve financially. Customer service and satisfaction is our
             priority, we want to build, create and contribute to your financial
