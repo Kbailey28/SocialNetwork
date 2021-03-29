@@ -25,12 +25,12 @@ const Navbar = ({ auth: { isAuthenticated, isAdmin, loading, }, logout }) => {
           <span className='hide-sm'>Dashboard</span>
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link to='/posts-user'>
         {' '}
           <i className='fas fa-sticky-note'></i>{' '} <span className='hide-sm'>Posts</span>
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link to='/login'>
         {' '}
@@ -69,13 +69,13 @@ const Navbar = ({ auth: { isAuthenticated, isAdmin, loading, }, logout }) => {
       <li>
         <Link to='/profiles'>Clients</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to='/posts'>
         {' '}
           <i className='fas fa-user'></i>{' '}
           <span className='hide-sm'>Posts</span>
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link to='/dashboard'>
           {' '}

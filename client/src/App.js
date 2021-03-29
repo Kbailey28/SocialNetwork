@@ -24,7 +24,8 @@ import UserPosts from './components/posts/UserPosts';
 import UserPostForm from './components/posts/UserPostForm';
 import PrivateRoute from './components/routing/PrivateRoute';
 import AdminRoute from './components/routing/AdminRoute';
-
+import Quiz from './components/quiz/Quiz';
+import QuizInfo from './components/quiz/QuizInfo';
 import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
@@ -55,6 +56,8 @@ const App = () => {
               <Route exact path='/Pricing' component={Pricing} />
               <Route exact path='/Login' component={Login} />
               <Route exact path='/reset' component={Reset} />
+              <Route exact path='/Quiz' component={Quiz} />
+              <Route exact path='/QuizInfo' component={QuizInfo} />
               <Route exact path='/resetpassword' component={Resetpassword} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute

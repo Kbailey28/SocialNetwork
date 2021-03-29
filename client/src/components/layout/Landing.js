@@ -52,7 +52,7 @@ const Landing = ({ isAuthenticated }) => {
         <div className='quizInner'>
             <h1 className='x-large py-4'>Take our financial Quiz Here</h1>
             <div className='buttons'>
-              <Link to='/register' className='btn btn-primary'>
+              <Link to='/Quiz' className='btn btn-primary'>
                 Take our quiz here
               </Link>
             </div>
