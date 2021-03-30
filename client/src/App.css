@@ -367,7 +367,8 @@ button {
   height: 100vh;
   opacity: 0.85;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100%;
+  width: 100%;
 }
 
 .landing-inner {
@@ -456,7 +457,8 @@ button {
   position: relative;
   opacity: 0.85;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100%;
+  width: 100%;
 }
 
 .quizInner {
@@ -842,6 +844,11 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+
+  /* Quiz */
+  .choiceList {
+    column-count: 4;
+  }
 }
 
 /* Mobile Styles */
@@ -934,5 +941,10 @@ button {
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
+  }
+
+  /* Quiz */
+  .choiceList {
+    column-count: 3;
   }
 }
