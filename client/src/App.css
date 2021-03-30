@@ -919,6 +919,10 @@ button {
     background-attachment: scroll !important;
   }
 
+  .picture2 {
+    background-position: center right;
+  }
+
   /* Profiles Page */
   .profile {
     grid-template-columns: 1fr;
